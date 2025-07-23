@@ -1,0 +1,59 @@
+﻿using Catfact.Application.Abstractions;
+using Catfact.Application.Commands;
+using Catfact.Application.Commands.Handlers;
+using Catfact.Application.Queries;
+using Catfact.Core.Abstractions;
+using Catfact.Core.Models;
+using Catfact.Core.Repositories;
+using Catfact.Infrastructure.Exceptions;
+using Catfact.Infrastructure.Handlers;
+using Catfact.Infrastructure.Repositories;
+using Catfact.Infrastructure.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+
+namespace Catfact.Infrastructure;
+
+public static class Extensions
+{
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddHttpClient("client", client =>
+        {
+            client.BaseAddress = new Uri("https://catfact.ninja");
+        });
+        services.AddControllers();
+        services.AddHttpContextAccessor();
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen(swagger =>
+        {
+            swagger.EnableAnnotations();
+            swagger.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "Catfact Api",
+                Version = "v1"
+            });
+        });
+
+        services.AddSingleton<ExceptionMiddleware>();
+        services.AddScoped<ICatRepository, CatRepository>();
+        services.AddScoped<ICatService, CatService>();
+        services.AddScoped<IQueryHandler<GetCats, List<Cat>>, GetCatsHandler>();
+        services.AddScoped<ICommandHandler<CreateCat>, CreateCatHandler>();
+
+        return services;
+    }
+
+    public static WebApplication UseInfrastructure(this WebApplication app)
+    {
+        app.UseMiddleware<ExceptionMiddleware>();
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        //app.UseCors("Open"); dodanie do frontu
+        app.MapControllers();
+
+        return app;
+    }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Fact": "The richest cat is Blackie who was left \u00A315 million by his owner, Ben Rea.",
+    "Length": 74
+  },
+  {
+    "Fact": "Cats have \u0022nine lives\u0022 thanks to a flexible spine and powerful leg and back muscles",
+    "Length": 83
+  },
+  {
+    "Fact": "Cats have individual preferences for scratching surfaces and angles. Some are horizontal scratchers while others exercise their claws vertically.",
+    "Length": 145
+  },
+  {
+    "Fact": "An adult lion\u0027s roar can be heard up to five miles (eight kilometers) away.",
+    "Length": 75
+  }
+]
