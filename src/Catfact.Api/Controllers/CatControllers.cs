@@ -21,9 +21,9 @@ public class CatControllers : ControllerBase
     }
 
     [HttpPost("cat")]
-    public async Task<ActionResult> CreateCat(CreateCat command)
+    public async Task<ActionResult> CreateCat()
     {
-        await _createCat.HandleAsync(command);
+        await _createCat.HandleAsync(new CreateCat());
         return NoContent();
     }
 

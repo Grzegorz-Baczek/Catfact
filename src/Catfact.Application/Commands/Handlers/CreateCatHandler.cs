@@ -5,7 +5,7 @@ using Catfact.Core.Repositories;
 
 namespace Catfact.Application.Commands.Handlers;
 
-public sealed class CreateCatHandler : ICommandHandler<CreateCat> //sprawdz czy sealed moze byc z public i moze w inny sposob zarejstroj di skoro ta klasa musi byc publiczna do tego
+public sealed class CreateCatHandler : ICommandHandler<CreateCat> 
 {
     private readonly ICatService _catService;
     private readonly ICatRepository _catRepository;

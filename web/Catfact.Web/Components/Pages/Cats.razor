@@ -1,0 +1,38 @@
+﻿@page "/"
+
+@using Catfact.Web.Dtos
+@using Catfact.Web.Services
+@rendermode InteractiveServer
+@inject ICatService CatService
+
+<AddCatButton CatFactAdded="@Refresh" />
+<h3>Cat Facts:</h3>
+
+
+@if (catFacts == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<ol>
+		@foreach (var cat in catFacts)
+		{
+			<li>@cat.Fact (@cat.Length chars)</li>
+		}
+	</ol>
+}
+
+@code {
+	private List<CatDto> catFacts;
+
+	protected override async Task OnInitializedAsync()
+	{
+		catFacts = await CatService.GetCatsAsync();
+	}
+
+	private async Task Refresh()
+	{
+		catFacts = await CatService.GetCatsAsync();
+	}
+}
