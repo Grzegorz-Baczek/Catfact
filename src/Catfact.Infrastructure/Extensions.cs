@@ -20,9 +20,11 @@ public static class Extensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddHttpClient("client", client =>
+        services.AddHttpClient("client", (serviceProvider, client) =>
         {
-            client.BaseAddress = new Uri("https://catfact.ninja");
+            var config = serviceProvider.GetRequiredService<IConfiguration>();
+            var baseAddress = config["BaseAddress"];
+            client.BaseAddress = new Uri(baseAddress);
         });
         services.AddControllers();
         services.AddHttpContextAccessor();
