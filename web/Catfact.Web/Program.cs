@@ -6,9 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddHttpClient<ICatService, CatService>(client =>
+builder.Services.AddHttpClient<ICatService, CatService>((serviceProvider ,client) =>
 {
-    client.BaseAddress = new Uri("http://localhost:5229/");
+    var config = serviceProvider.GetRequiredService<IConfiguration>();
+    var baseAddress = config["BaseAddress"];
+    client.BaseAddress = new Uri(baseAddress);
 });
 
 var app = builder.Build();
