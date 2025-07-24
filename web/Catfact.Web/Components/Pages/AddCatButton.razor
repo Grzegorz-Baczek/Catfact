@@ -1,0 +1,18 @@
+﻿@using Catfact.Web.Dtos
+@using Catfact.Web.Services
+@rendermode InteractiveServer
+
+@inject ICatService CatService
+
+<button class="btn btn-primary" @onclick="AddFact">Dodaj fakt o kocie</button>
+
+
+@code {
+	[Parameter]
+	public EventCallback CatFactAdded { get; set; }
+	private async Task AddFact()
+	{
+		await CatService.AddCatAsync();
+		await CatFactAdded.InvokeAsync();
+	}
+}

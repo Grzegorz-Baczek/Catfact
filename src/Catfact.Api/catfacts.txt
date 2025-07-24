@@ -14,5 +14,13 @@
   {
     "Fact": "An adult lion\u0027s roar can be heard up to five miles (eight kilometers) away.",
     "Length": 75
+  },
+  {
+    "Fact": "A cat has the ability to rotate their ears 180 degrees,with the help of 32 muscles that they use to control them.",
+    "Length": 113
+  },
+  {
+    "Fact": "The smallest wildcat today is the Black-footed cat. The females are less than 20 inches (50 cm) long and can weigh as little as 2.5 lbs (1.2 kg).",
+    "Length": 145
   }
 ]

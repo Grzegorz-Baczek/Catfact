@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catfact.Api", "src\Catfact.Api\Catfact.Api.csproj", "{FF028935-7B57-4237-9430-64502E45F66D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catfact.Infrastructure", "src\Catfact.Infrastructure\Catfact.Infrastructure.csproj", "{AB57C9FC-C77F-4462-9B1B-2B33024D075E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catfact.Application", "src\Catfact.Application\Catfact.Application.csproj", "{AD054C46-B815-411F-96A2-2A41C7F77352}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catfact.Web", "web\Catfact.Web\Catfact.Web.csproj", "{D7D1B52F-49FA-45B7-B312-82C6D5530D70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AD054C46-B815-411F-96A2-2A41C7F77352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD054C46-B815-411F-96A2-2A41C7F77352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD054C46-B815-411F-96A2-2A41C7F77352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D1B52F-49FA-45B7-B312-82C6D5530D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D1B52F-49FA-45B7-B312-82C6D5530D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D1B52F-49FA-45B7-B312-82C6D5530D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D1B52F-49FA-45B7-B312-82C6D5530D70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

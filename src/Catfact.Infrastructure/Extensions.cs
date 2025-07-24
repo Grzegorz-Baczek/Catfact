@@ -37,6 +37,11 @@ public static class Extensions
             });
         });
 
+        services.AddCors(options =>
+        {
+            options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+        });
+
         services.AddSingleton<ExceptionMiddleware>();
         services.AddScoped<ICatRepository, CatRepository>();
         services.AddScoped<ICatService, CatService>();
@@ -51,7 +56,7 @@ public static class Extensions
         app.UseMiddleware<ExceptionMiddleware>();
         app.UseSwagger();
         app.UseSwaggerUI();
-        //app.UseCors("Open"); dodanie do frontu
+        app.UseCors("Open");
         app.MapControllers();
 
         return app;
